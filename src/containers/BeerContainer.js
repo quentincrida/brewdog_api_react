@@ -9,6 +9,7 @@ class BeerContainer extends Component {
       beers: [],
       currentBeer: null
     }
+    this.handleBeerSelected = this.handleBeerSelected.bind(this);
   }
     componentDidMount(){
       const url = 'https://api.punkapi.com/v2/beers';
@@ -18,14 +19,18 @@ class BeerContainer extends Component {
         .then(beers => this.setState({beers: beers}))
         .catch(err => console.error);
     }
+    handleBeerSelected(index){
+      const selectedBeer = this.state.beers[index];
+      this.setState({currentBeer: selectedBeer})
+    }
 
 
   render(){
     return (
       <div>
         <h2>Beer Container</h2>
-        <BeerSelector beers={this.state.beers}/>
-        <BeerDetail />
+        <BeerSelector beers={this.state.beers} onBeerSelected={this.handleBeerSelected}/>
+        <BeerDetail beer={this.state.currentBeer}/>
       </div>
     )
   }

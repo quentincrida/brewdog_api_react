@@ -1,8 +1,9 @@
 import React from 'react';
 
-const BeerDetail = () => {
+const BeerDetail = (props) => {
+  if(!props.beer) return null;
   return (
-    <h3> Beer details go here</h3>
+    <h3>{props.beer.name}</h3>
   )
 
 }
