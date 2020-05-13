@@ -28,7 +28,7 @@ class BeerContainer extends Component {
   render(){
     return (
       <div>
-        <h2>Beer Container</h2>
+        <h2>Brewdog's Finest Kegs</h2>
         <BeerSelector beers={this.state.beers} onBeerSelected={this.handleBeerSelected}/>
         <BeerDetail beer={this.state.currentBeer}/>
       </div>
